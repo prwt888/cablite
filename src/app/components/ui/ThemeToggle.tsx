@@ -2,7 +2,7 @@
 
 'use client'
 import { useEffect, useState } from 'react';
-import styles from '../styles/themeSwitch.module.css';
+import styles from '../../styles/themeSwitch.module.css';
 
 interface ThemeToggleProps {
   onThemeChange?: (theme: 'light' | 'dark') => void;

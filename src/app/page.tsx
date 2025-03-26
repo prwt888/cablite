@@ -1,8 +1,8 @@
 
 // File: /pages/index.tsx
 import Head from 'next/head';
-import Hero from './components/Hero';
-import Header from "./components/Header"
+import Hero from './components/ui/Hero';
+import Header from "./components/ui/Header"
 export default function Home() {
   return (
     <div >

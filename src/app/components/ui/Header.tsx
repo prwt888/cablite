@@ -2,9 +2,9 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import ThemeToggle from './ThemeToggle'
-import { InteractiveHoverButton } from './interactive-hover-button'
+
 import {Instrument_Serif} from 'next/font/google' 
+import Navbar from './Navbar'
 
 const instserif = Instrument_Serif({
   weight: '400',
@@ -71,10 +71,7 @@ const Header: React.FC = () => {
             aspectRatio: '240/100',  // Maintain the aspect ratio
           }}
         />
-        <button className='rounded-3xl text-xl border p-2   shadow-[3px_3px_2px_rgba(0,0,0,0.15)]'><span>{isDarkMode ? '🌙' : '🔴'}</span>{" "}
-        <span className="font-instserif-italic">How It Works?</span></button>
-           <InteractiveHoverButton>CREATE CABPOOL</InteractiveHoverButton>
-           <ThemeToggle onThemeChange={handleThemeChange} />
+<Navbar/>    
       </div>
 
     </header>
