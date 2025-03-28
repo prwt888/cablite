@@ -65,7 +65,8 @@ const Header: React.FC = () => {
           width={250} 
           height={110} 
           priority
-          className="rounded-3xl shadow-[0_20px_10px_rgb(0,0,0,0.12)] object-cover"
+          unoptimized
+          className="rounded-3xl shadow-[0_20px_10px_rgb(0,0,0,0.12)] object-cover "
           style={{
             objectFit: 'cover',
             aspectRatio: '240/100',  // Maintain the aspect ratio

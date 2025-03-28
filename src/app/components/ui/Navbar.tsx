@@ -4,15 +4,11 @@ import { InteractiveHoverButton } from './interactive-hover-button'
 
 import React, { useState, useEffect } from 'react'
 
-import {Instrument_Serif} from 'next/font/google' 
+import { Instrument_Serif } from 'next/font/google'
 import {
-    ClerkProvider,
-    SignInButton,
-    SignUpButton,
-    SignedIn,
-    SignedOut,
-    UserButton,
-  } from '@clerk/nextjs'
+  SignedIn,
+  UserButton,
+} from '@clerk/nextjs'
 
 const instserif = Instrument_Serif({
   weight: '400',
@@ -31,9 +27,9 @@ const Navbar: React.FC = () => {
       const isDark = document.documentElement.classList.contains('dark-mode')
       setIsDarkMode(isDark)
     }
-    
+
     checkDarkMode()
-    
+
     // Set up an observer to detect class changes on the html element
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -45,9 +41,9 @@ const Navbar: React.FC = () => {
         }
       })
     })
-    
+
     observer.observe(document.documentElement, { attributes: true })
-    
+
     // Clean up observer on component unmount
     return () => observer.disconnect()
   }, [])
@@ -64,23 +60,23 @@ const Navbar: React.FC = () => {
     }
   }
   return (
-    <div className='flex space-x-4 p-3 px-auto'>    <button className='rounded-3xl text-xl p-3  shadow-input'><span>{isDarkMode ? '🌙' : '🔴'}</span>{" "}
-    <span className="font-instserif-italic rounded-3xl px-1">How It Works?</span></button>
-       <InteractiveHoverButton>CREATE CABPOOL</InteractiveHoverButton>
-                   <span className='p-4'>
-                       <SignedIn>
-                       <UserButton appearance={{
-elements:{
-  userButtonBox:''
-}
-                       }}
-                       />
-                                        </SignedIn>
-                   </span>
-                 <span className='m-3'>
-                     <ThemeToggle onThemeChange={handleThemeChange} />
-                 </span>
-                 </div>
+    <div className='flex space-x-4 p-2'>    
+    <button className={isDarkMode?'rounded-4xl px-5 bg-gradient-to-b from-[#161616] via-[#252525] to-[#222222] text-white':'rounded-4xl px-5  shadow-input'}>
+    <span className='text-2xl'>{isDarkMode ? '🔵' : '🔴'}</span>{" "}
+      <span className="font-instserif-italic font-medium px-1 text-2xl">How It Works?
+        </span>
+        </button>
+      <InteractiveHoverButton>CREATE CABPOOL</InteractiveHoverButton>
+      <span className='p-2'>
+        <SignedIn>
+          <UserButton
+          />
+        </SignedIn>
+      </span>
+      <span className='flex items-center'>
+        <ThemeToggle onThemeChange={handleThemeChange} />
+      </span>
+    </div>
   )
 }
 

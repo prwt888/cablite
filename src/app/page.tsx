@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Hero from './components/ui/Hero';
 import Header from "./components/ui/Header"
+import SearchSection from "./components/ui/SearchSection"
 export default function Home() {
   return (
     <div >
@@ -13,11 +14,11 @@ export default function Home() {
       </Head>
 
 
- 
-      <Header/>
 
-      <Hero/>
+      <Header />
 
+      <Hero />
+      <SearchSection />
     </div>
   );
 }
