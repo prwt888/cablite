@@ -1,5 +1,7 @@
-
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 /* @custom-variant dark (&:is(.dark *)); */
 html, body {
@@ -49,8 +51,6 @@ a {
 }
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -80,12 +80,13 @@ a {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 .shadow-input{
  box-shadow:  0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02),0px 0px 0px 1px rgba(25,28,33,0.08);
 
 }
-
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -121,6 +122,7 @@ a {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
 .cl-userButtonBox {
   height: 40px;
   width: 40px;
@@ -151,9 +153,8 @@ a {
   color: var(--foreground);
 }
 
-/* 
-@theme inline {
 
+@theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -161,9 +162,6 @@ a {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
-￼
-￼
-
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -202,4 +200,9 @@ a {
     @apply bg-background text-foreground;
   }
 }
- */
+
+@layer utilities {
+  .not-focus:not(:focus) {
+    @apply transition-all duration-300;
+  }
+}
