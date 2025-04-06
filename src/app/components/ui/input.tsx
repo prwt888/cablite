@@ -13,7 +13,7 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
         className={cn(
           "flex w-full rounded-lg border border-input bg-background text-sm text-foreground transition-all duration-300",
           // Base padding when empty or focused
-          isFocused ? "pl-12" : hasValue ? "pl-48" : "pl-12",
+          isFocused ? "pl-12" : hasValue ? "pl-56" : "pl-12",
           "py-6",
           type === "search" &&
             "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",

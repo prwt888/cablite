@@ -6,7 +6,7 @@ import Header from "./components/ui/Header"
 import SearchSection from "./components/ui/SearchSection"
 export default function Home() {
   return (
-    <div >
+    <div>
       <Head>
         <title>CabLite</title>
         <meta name="description" content="Best Carpooling app ever made" />

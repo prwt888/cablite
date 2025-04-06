@@ -8,7 +8,7 @@ interface HeroProps {
   className?: string
 }
 
-const Hero: React.FC<HeroProps> = ({ className = '' }) => {
+const Hero: React.FC<HeroProps> = ({ className = 'mb-0' }) => {
   // Track theme for image switching (light/dark)
   const [isDarkMode, setIsDarkMode] = useState(false)
 
@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({ className = '' }) => {
           alt="Hero background"
           priority={true}
           fill
-          style={{ objectFit: 'cover', objectPosition: 'top' ,zIndex:-10}}
+            style={{ objectFit: 'cover', objectPosition: 'top' ,zIndex:-10}}
         />
       </div>
     </div>

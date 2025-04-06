@@ -16,9 +16,10 @@ html, body {
 body {
   background-color: #f8f9fa;
   color: #333;
+  overflow-x: hidden;
 }
 
-/* Dark mode styles - these will be applied when .dark-mode class is present */
+/* Dark mode styles - these will be applied when .dark class is present */
 html.dark-mode body {
   background-color: #000000;
   color: #f8f9fa;
@@ -87,7 +88,7 @@ a {
  box-shadow:  0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02),0px 0px 0px 1px rgba(25,28,33,0.08);
 
 }
-
+/* 
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -120,7 +121,7 @@ a {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-}
+} */
 
 
 .cl-userButtonBox {
@@ -150,7 +151,6 @@ a {
 .cl-userPreviewMainIdentifier{
   font-size: 2rem;
   font-weight: 600;
-  color: var(--foreground);
 }
 
 

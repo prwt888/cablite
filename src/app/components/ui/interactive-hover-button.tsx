@@ -42,14 +42,14 @@ export const InteractiveHoverButton = React.forwardRef<
   }, [])
 
   // Handle theme change from ThemeToggle component
-  const handleThemeChange = (theme: 'light' | 'dark') => {
-    setIsDarkMode(theme === 'dark')
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
+  const handleThemeChange = (theme: 'light' | 'dark-mode') => {
+    setIsDarkMode(theme === 'dark-mode')
+    if (theme === 'dark-mode') {
+      document.documentElement.classList.add('dark-mode')
       document.documentElement.classList.remove('light')
     } else {
       document.documentElement.classList.add('light')
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('dark-mode')
     }
   }
   return (

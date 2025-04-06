@@ -23,17 +23,24 @@
 }
 
 /* Scale down hero height as screen gets smaller */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .heroContainer {
-        height: 35vh;
-        top: 4rem;
+        height: 40vh;
+        top: -3rem;
+        min-width: 100%;
+    }
+}
+/* Scale down hero height as screen gets smaller */
+@media (max-width: 920px) {
+    .heroContainer {
+        height: 32vh;
+        top: -1rem;
         min-width: 100%;
     }
 }
 
-
-/* Hide hero section on medium screens and below */
-@media (max-width: 768px) {
+/* Hide hero section on mobile screens */
+@media (max-width: 750px) {
     .heroContainer {
         display: none;
     }

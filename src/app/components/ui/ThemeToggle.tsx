@@ -1,27 +1,13 @@
-
-
 'use client'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from '../../styles/themeSwitch.module.css';
 
 interface ThemeToggleProps {
-  onThemeChange?: (theme: 'light' | 'dark') => void;
+  onThemeChange?: (theme: 'light' | 'dark-mode') => void;
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ onThemeChange }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Check if a theme preference exists in local storage
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Set initial theme based on saved preference or system preference
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark-mode');
-    }
-  }, []);
 
   const handleToggle = () => {
     const newThemeValue = !isDarkMode;
@@ -29,14 +15,12 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onThemeChange }) => {
     
     if (newThemeValue) {
       document.documentElement.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
     }
     
     if (onThemeChange) {
-      onThemeChange(newThemeValue ? 'dark' : 'light');
+      onThemeChange(newThemeValue ? 'dark-mode' : 'light');
     }
   };
 

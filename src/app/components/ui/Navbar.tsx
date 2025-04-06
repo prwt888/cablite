@@ -49,21 +49,21 @@ const Navbar: React.FC = () => {
   }, [])
 
   // Handle theme change from ThemeToggle component
-  const handleThemeChange = (theme: 'light' | 'dark') => {
-    setIsDarkMode(theme === 'dark')
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
+  const handleThemeChange = (theme: 'light' | 'dark-mode') => {
+    setIsDarkMode(theme === 'dark-mode')
+    if (theme === 'dark-mode') {
+      document.documentElement.classList.add('dark-mode')
       document.documentElement.classList.remove('light')
     } else {
       document.documentElement.classList.add('light')
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('dark-mode')
     }
   }
   return (
     <div className='flex space-x-4 p-2'>    
-    <button className={isDarkMode?'rounded-4xl px-5 bg-gradient-to-b from-[#161616] via-[#252525] to-[#222222] text-white':'rounded-4xl px-5  shadow-input'}>
-    <span className='text-2xl'>{isDarkMode ? '🔵' : '🔴'}</span>{" "}
-      <span className="font-instserif-italic font-medium px-1 text-2xl">How It Works?
+    <button className={isDarkMode?'rounded-4xl px-5 opacity-95 bg-gradient-to-b from-[#1c1c1c] via-[#252525] to-[#464444] text-white':'rounded-4xl px-5  shadow-input'}>
+    <span className='text-2xl italic'>{isDarkMode ? '❔' : '❓'}</span>{" "}
+      <span className="font-instserif-italic font-medium px-1 text-2xl">How It Works
         </span>
         </button>
       <InteractiveHoverButton>CREATE CABPOOL</InteractiveHoverButton>

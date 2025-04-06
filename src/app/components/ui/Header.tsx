@@ -3,15 +3,9 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-import {Instrument_Serif} from 'next/font/google' 
+ 
 import Navbar from './Navbar'
 
-const instserif = Instrument_Serif({
-  weight: '400',
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  variable: '--font-instserif',
-})
 
 const Header: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -45,14 +39,14 @@ const Header: React.FC = () => {
   }, [])
 
   // Handle theme change from ThemeToggle component
-  const handleThemeChange = (theme: 'light' | 'dark') => {
-    setIsDarkMode(theme === 'dark')
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
+  const handleThemeChange = (theme: 'light' | 'dark-mode') => {
+    setIsDarkMode(theme === 'dark-mode')
+    if (theme === 'dark-mode') {
+      document.documentElement.classList.add('dark-mode')
       document.documentElement.classList.remove('light')
     } else {
       document.documentElement.classList.add('light')
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('dark-mode')
     }
   }
 
@@ -60,7 +54,7 @@ const Header: React.FC = () => {
     <header className="w-full py-2 absolute top-0 left-0 z-10">
       <div className="pl-4 pr-5 mx-auto flex justify-between items-center">
         <Image 
-          src={isDarkMode ? "/images/Cablitedarkmodelogo.gif" : "/images/CabliteLightmodelogo.gif"}
+          src={isDarkMode ? "/images/CabliteLightmodelogo.gif" : "/images/CabliteDarkmodelogo.gif"}
           alt="Cablite" 
           width={250} 
           height={110} 
