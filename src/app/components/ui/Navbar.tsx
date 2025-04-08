@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
       <span className="font-instserif-italic font-medium px-1 text-2xl">How It Works
         </span>
         </button>
-      <InteractiveHoverButton>CREATE CABPOOL</InteractiveHoverButton>
+      <InteractiveHoverButton>DASHBOARD</InteractiveHoverButton>
       <span className='p-2'>
         <SignedIn>
           <UserButton

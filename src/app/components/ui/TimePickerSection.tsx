@@ -53,9 +53,9 @@ export default function TimePickerSection() {
     if (newTimeRange.from && newTimeRange.to) {
       const fromTime = new Date(`1970-01-01 ${newTimeRange.from}`);
       const toTime = new Date(`1970-01-01 ${newTimeRange.to}`);
-      
+
       if (toTime < fromTime) {
-        setError("Please enter the correct time");
+        setError("Please enter the correct time range");
         setHasError(true);
       }
     }
@@ -105,7 +105,9 @@ export default function TimePickerSection() {
           <Button
             variant="outline"
             className={cn(
-              isDarkMode ? ` bg-[#262626] border-1 border-[rgba(160,160,161,0.9)] shadow-[inset_18px_17px_4px_-6px_rgba(0,0,0,0.25)] rounded-xl py-8 justify-start text-left ${poppins.className} font-medium` : ` bg-[#EEEEEE] border-2 ${hasError ? 'border-red-500' : 'border-[rgba(8,24,67,0.9)]'} shadow-[inset_16px_11px_4px_-6px_rgba(0,0,0,0.25)] rounded-xl py-8 justify-start text-left ${poppins.className} font-medium`,
+              isDarkMode 
+                ? ` w-full bg-[#262626] border-1 ${hasError ? 'border-red-500' : 'border-[rgba(160,160,161,0.9)]'} shadow-[inset_18px_17px_4px_-6px_rgba(0,0,0,0.25)] rounded-xl py-6 justify-start text-left ${poppins.className} font-medium` 
+                : ` w-full bg-[#EEEEEE] border-2 ${hasError ? 'border-red-500' : 'border-[rgba(8,24,67,0.9)]'} shadow-[inset_16px_11px_4px_-6px_rgba(0,0,0,0.25)] rounded-xl py-6 justify-start text-left ${poppins.className} font-medium`,
               !timeRange[type] && "text-muted-foreground"
             )}
           >
@@ -120,13 +122,13 @@ export default function TimePickerSection() {
                 {type === 'from' ? 'From: ' : 'To: '}{formatTime(timeRange[type])}
               </span>
             ) : (
-                <span className={`pl-1 text-base ${poppins.className}`}>
+              <span className={`pl-1 text-base ${poppins.className}`}>
                 Select {type === 'from' ? 'start' : 'end'} time
               </span>
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className={isDarkMode ? "text-white bg-[#262626] border-1 border-[rgba(160,160,161,0.9)] shadow-[inset_18px_17px_4px_-6px_rgba(0,0,0,0.25)] rounded-4xl p-4" : "bg-[#EEEEEE] border-2 border-[rgba(8,24,67,0.9)] shadow-lg rounded-4xl p-4"}>
+        <PopoverContent className={isDarkMode ? "text-white bg-[#262626] border-1 border-[rgba(160,160,161,0.9)] shadow-[inset_18px_17px_4px_-6px_rgba(0,0,0,0.25)] rounded-4xl p-4 w-[300px] z-50" : "bg-[#EEEEEE] border-2 border-[rgba(8,24,67,0.9)] shadow-lg rounded-4xl p-4 w-[300px] z-50"}>
           <div className="flex gap-1">
             <div className="flex-1">
               <ScrollArea className="h-[200px] rounded-md ">
@@ -193,14 +195,14 @@ export default function TimePickerSection() {
             <Button
               variant="outline"
               onClick={() => clearTime(type)}
-              className={`border-red-500 bg-gradient-to-b from-red-500 to-red-700 text-white hover:text-white hover:from-red-600 hover:to-red-800 ${poppins.className}`}
+              className={`cursor-pointer border-red-500 bg-gradient-to-b from-red-500 to-red-700 text-white hover:text-white hover:from-red-600 hover:to-red-800 ${poppins.className}`}
             >
               Clear
             </Button>
             <Button
               onClick={handleConfirm}
               disabled={!selectedHour || selectedMinute === null}
-              className={`bg-gradient-to-b from-green-500 to-green-700 text-white hover:from-green-600 hover:to-green-800 ${poppins.className}`}
+              className={`cursor-pointer bg-gradient-to-b from-green-500 to-green-700 text-white hover:from-green-600 hover:to-green-800 ${poppins.className}`}
             >
               Confirm
             </Button>
@@ -211,10 +213,14 @@ export default function TimePickerSection() {
   };
 
   return (
-    <div className="z-10 w-full max-w-full mx-auto">
-      <div className="flex gap-4">
-        <TimePickerPopover type="from" />
-        <TimePickerPopover type="to" />
+    <div className="z-10 w-full">
+      <div className="flex gap-1">
+        <div className="w-1/2">
+          <TimePickerPopover type="from" />
+        </div>
+        <div className="w-1/2">
+          <TimePickerPopover type="to" />
+        </div>
       </div>
       {error && (
         <div className={`text-red-500 text-sm ${poppins.className} mt-2`}>

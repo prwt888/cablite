@@ -33,7 +33,7 @@ const space_mono = Space_Mono({
 
 
 export const metadata: Metadata = {
-  title: "CabLite",
+  title: "CabLite-Your Ultimate Carpooling App",
   description: "Best Carpooling Application in the World",
 };
 

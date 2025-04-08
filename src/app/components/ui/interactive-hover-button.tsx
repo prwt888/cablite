@@ -55,7 +55,7 @@ export const InteractiveHoverButton = React.forwardRef<
   return (
     <button
       ref={ref}
-      className={cn(isDarkMode ? "group relative w-auto cursor-pointer overflow-hidden rounded-full   bg-gradient-to-b from-[#03097c] via-[#024d82] to-[#0281bb] p-3 px-6 text-center text-2xl font-mono font-bold text-white shadow-[7px_9px_4px_rgba(0,0,0,0.15)]" : "group relative w-auto cursor-pointer overflow-hidden rounded-full   bg-gradient-to-b from-[#ff6600] via-[#FF7417] to-[#e70303] p-3 px-6 text-center text-2xl font-mono font-bold text-white shadow-[7px_9px_4px_rgba(0,0,0,0.15)]",
+      className={cn(isDarkMode ? "group relative w-auto cursor-pointer overflow-hidden rounded-full   bg-gradient-to-b from-[#03097c] via-[#024d82] to-[#0281bb] p-3 px-7 text-center text-2xl font-mono font-bold text-white shadow-[7px_9px_4px_rgba(0,0,0,0.15)] " : "group relative w-auto cursor-pointer overflow-hidden rounded-full   bg-gradient-to-b from-[#ff6600] via-[#FF7417] to-[#e70303] p-3 px-7 text-center text-2xl font-mono font-bold text-white shadow-[7px_9px_4px_rgba(0,0,0,0.15)]",
         className,
       )}
       {...props}
